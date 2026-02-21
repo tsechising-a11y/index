@@ -1,302 +1,268 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #0e6e6d; -webkit-text-stroke: #0e6e6d}
-    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; -webkit-text-stroke: #000000; min-height: 16.0px}
-    p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #4d5055; -webkit-text-stroke: #4d5055}
-    p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #18702b; -webkit-text-stroke: #18702b}
-    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px Menlo; color: #6f0ec3; -webkit-text-stroke: #6f0ec3}
-    span.s1 {font-kerning: none; color: #6f0ec3; background-color: #ecf1f7; -webkit-text-stroke: 0px #6f0ec3}
-    span.s2 {font-kerning: none; background-color: #ecf1f7}
-    span.s3 {font-kerning: none; color: #0e6e6d; background-color: #ecf1f7; -webkit-text-stroke: 0px #0e6e6d}
-    span.s4 {font-kerning: none; color: #18702b; background-color: #ecf1f7; -webkit-text-stroke: 0px #18702b}
-    span.s5 {font-kerning: none; color: #000000; background-color: #ecf1f7; -webkit-text-stroke: 0px #000000}
-    span.s6 {font-kerning: none}
-    span.s7 {font-kerning: none; color: #a4450b; background-color: #ecf1f7; -webkit-text-stroke: 0px #a4450b}
-    span.s8 {font-kerning: none; color: #4d5055; background-color: #ecf1f7; -webkit-text-stroke: 0px #4d5055}
-    span.s9 {font: 14.0px 'PingFang HK'; font-kerning: none; color: #4d5055; background-color: #ecf1f7; -webkit-text-stroke: 0px #4d5055}
-    span.s10 {font: 14.0px 'PingFang HK'; font-kerning: none; color: #18702b; background-color: #ecf1f7; -webkit-text-stroke: 0px #18702b}
-    span.s11 {font: 14.0px 'Apple Color Emoji'; font-kerning: none; background-color: #ecf1f7}
-    span.s12 {font: 14.0px 'PingFang HK'; font-kerning: none; background-color: #ecf1f7}
-    span.s13 {font: 14.0px 'Apple Color Emoji'; font-kerning: none; color: #18702b; background-color: #ecf1f7; -webkit-text-stroke: 0px #18702b}
-    span.s14 {font: 14.0px 'PingFang HK'; font-kerning: none; color: #bf1c25; background-color: #ecf1f7; -webkit-text-stroke: 0px #bf1c25}
-  </style>
-</head>
-<body>
-<p class="p1"><span class="s1">import</span><span class="s2"> </span><span class="s3">React</span><span class="s2">, { useState, useEffect } </span><span class="s1">from</span><span class="s2"> </span><span class="s4">'react'</span><span class="s2">;</span></p>
-<p class="p2"><span class="s1">import</span><span class="s5"> { </span><span class="s2">ChevronRight</span><span class="s5">, </span><span class="s2">ChevronLeft</span><span class="s5">, </span><span class="s2">Copy</span><span class="s5">, </span><span class="s2">Check</span><span class="s5">, </span><span class="s2">Share2</span><span class="s5">, </span><span class="s2">Heart</span><span class="s5">, </span><span class="s2">Shield</span><span class="s5">, </span><span class="s2">Sun</span><span class="s5">, </span><span class="s2">History</span><span class="s5">, </span><span class="s2">MessageSquareQuote</span><span class="s5"> } </span><span class="s1">from</span><span class="s5"> </span><span class="s4">'lucide-react'</span><span class="s5">;</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p1"><span class="s1">const</span><span class="s2"> </span><span class="s3">App</span><span class="s2"> = () =&gt; {</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span></span><span class="s1">const</span><span class="s2"> [currentStep, setCurrentStep] = useState(</span><span class="s7">0</span><span class="s2">);</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span></span><span class="s1">const</span><span class="s2"> [data, setData] = useState({</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>steps: [</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span>{ caretaker: </span><span class="s4">''</span><span class="s2">, personality: </span><span class="s4">''</span><span class="s2">, influence: </span><span class="s4">''</span><span class="s2"> }, </span><span class="s8">// </span><span class="s9">第一站</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span>{ shameMoment: </span><span class="s4">''</span><span class="s2"> }, <span class="Apple-converted-space">                            </span></span><span class="s8">// </span><span class="s9">第二站</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span>{ unexpectedGrace: </span><span class="s4">''</span><span class="s2"> }, <span class="Apple-converted-space">                        </span></span><span class="s8">// </span><span class="s9">第三站</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span>{ earliestMemory: </span><span class="s4">''</span><span class="s2"> },<span class="Apple-converted-space">                          </span></span><span class="s8">// </span><span class="s9">第四站</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span>{ godFootprints: </span><span class="s4">''</span><span class="s2"> }<span class="Apple-converted-space">                            </span></span><span class="s8">// </span><span class="s9">第五站</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>],</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>finalSummary: </span><span class="s4">''</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span>});</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span></span><span class="s1">const</span><span class="s2"> [copied, setCopied] = useState(</span><span class="s1">false</span><span class="s2">);</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span></span><span class="s1">const</span><span class="s2"> stepsInfo = [</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>{ title: </span><span class="s4">"</span><span class="s10">第一站：兒時照顧者</span><span class="s4">"</span><span class="s2">, icon: &lt;</span><span class="s3">Heart</span><span class="s2"> className=</span><span class="s4">"w-6 h-6"</span><span class="s2"> /&gt; },</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>{ title: </span><span class="s4">"</span><span class="s10">第二站：羞愧時刻</span><span class="s4">"</span><span class="s2">, icon: &lt;</span><span class="s3">Shield</span><span class="s2"> className=</span><span class="s4">"w-6 h-6"</span><span class="s2"> /&gt; },</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>{ title: </span><span class="s4">"</span><span class="s10">第三站：出奇不意的恩典</span><span class="s4">"</span><span class="s2">, icon: &lt;</span><span class="s3">Sun</span><span class="s2"> className=</span><span class="s4">"w-6 h-6"</span><span class="s2"> /&gt; },</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>{ title: </span><span class="s4">"</span><span class="s10">第四站：最早的回憶</span><span class="s4">"</span><span class="s2">, icon: &lt;</span><span class="s3">History</span><span class="s2"> className=</span><span class="s4">"w-6 h-6"</span><span class="s2"> /&gt; },</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>{ title: </span><span class="s4">"</span><span class="s10">第五站：上帝介入的足跡</span><span class="s4">"</span><span class="s2">, icon: &lt;</span><span class="s3">MessageSquareQuote</span><span class="s2"> className=</span><span class="s4">"w-6 h-6"</span><span class="s2"> /&gt; }</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span>];</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s2">// Load from LocalStorage</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span>useEffect(() =&gt; {</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">const</span><span class="s2"> saved = localStorage.getItem(</span><span class="s4">'walking_meditation_v2'</span><span class="s2">);</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">if</span><span class="s2"> (saved) {</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span></span><span class="s1">try</span><span class="s2"> {</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">const</span><span class="s2"> parsed = </span><span class="s3">JSON</span><span class="s2">.parse(saved);</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">if</span><span class="s2"> (parsed.steps &amp;&amp; parsed.steps.length === </span><span class="s7">5</span><span class="s2">) {</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>setData(parsed);</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span>}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span>} </span><span class="s1">catch</span><span class="s2"> (e) {</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span>console.error(</span><span class="s4">"Failed to load data"</span><span class="s2">);</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span>}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span>}, []);</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s2">// Save to LocalStorage</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span>useEffect(() =&gt; {</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>localStorage.setItem(</span><span class="s4">'walking_meditation_v2'</span><span class="s2">, </span><span class="s3">JSON</span><span class="s2">.stringify(data));</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span>}, [data]);</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span></span><span class="s1">const</span><span class="s2"> handleInputChange = (field, value) =&gt; {</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">const</span><span class="s2"> newSteps = [...data.steps];</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>newSteps[currentStep] = { ...newSteps[currentStep], [field]: value };</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>setData({ ...data, steps: newSteps });</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span>};</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span></span><span class="s1">const</span><span class="s2"> exportData = () =&gt; {</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s1">let</span><span class="s5"> text = </span><span class="s2">`</span><span class="s11">📝</span><span class="s12">【散步隨筆：生命足跡紀錄】</span><span class="s2">\n\n`</span><span class="s5">;</span></p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">    </span></span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s2">// </span><span class="s12">第一站</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">    </span>text += </span><span class="s2">`</span><span class="s11">📍</span><span class="s2"> </span><span class="s12">第一站：兒時照顧者</span><span class="s2">\n`</span><span class="s5">;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>text += </span><span class="s4">`</span><span class="s13">▪️</span><span class="s4"> </span><span class="s10">主要照顧者：</span><span class="s2">${data.steps[</span><span class="s7">0</span><span class="s2">].caretaker || </span><span class="s4">'</span><span class="s10">未填寫</span><span class="s4">'</span><span class="s2">}</span><span class="s4">\n`</span><span class="s2">;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>text += </span><span class="s4">`</span><span class="s13">▪️</span><span class="s4"> </span><span class="s10">形象特質：</span><span class="s2">${data.steps[</span><span class="s7">0</span><span class="s2">].personality || </span><span class="s4">'</span><span class="s10">未填寫</span><span class="s4">'</span><span class="s2">}</span><span class="s4">\n`</span><span class="s2">;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>text += </span><span class="s4">`</span><span class="s13">▪️</span><span class="s4"> </span><span class="s10">性情價值觀影響：</span><span class="s2">${data.steps[</span><span class="s7">0</span><span class="s2">].influence || </span><span class="s4">'</span><span class="s10">未填寫</span><span class="s4">'</span><span class="s2">}</span><span class="s4">\n\n`</span><span class="s2">;</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s2">// </span><span class="s12">第二站</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">    </span>text += </span><span class="s2">`</span><span class="s11">📍</span><span class="s2"> </span><span class="s12">第二站：羞愧時刻</span><span class="s2">\n`</span><span class="s5">;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>text += </span><span class="s4">`</span><span class="s13">▪️</span><span class="s4"> </span><span class="s10">經歷分享：</span><span class="s2">${data.steps[</span><span class="s7">1</span><span class="s2">].shameMoment || </span><span class="s4">'</span><span class="s10">未填寫</span><span class="s4">'</span><span class="s2">}</span><span class="s4">\n\n`</span><span class="s2">;</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s2">// </span><span class="s12">第三站</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">    </span>text += </span><span class="s2">`</span><span class="s11">📍</span><span class="s2"> </span><span class="s12">第三站：出奇不意的恩典</span><span class="s2">\n`</span><span class="s5">;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>text += </span><span class="s4">`</span><span class="s13">▪️</span><span class="s4"> </span><span class="s10">得到幫助的經歷：</span><span class="s2">${data.steps[</span><span class="s7">2</span><span class="s2">].unexpectedGrace || </span><span class="s4">'</span><span class="s10">未填寫</span><span class="s4">'</span><span class="s2">}</span><span class="s4">\n\n`</span><span class="s2">;</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s2">// </span><span class="s12">第四站</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">    </span>text += </span><span class="s2">`</span><span class="s11">📍</span><span class="s2"> </span><span class="s12">第四站：最早的回憶</span><span class="s2">\n`</span><span class="s5">;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>text += </span><span class="s4">`</span><span class="s13">▪️</span><span class="s4"> </span><span class="s10">回憶內容：</span><span class="s2">${data.steps[</span><span class="s7">3</span><span class="s2">].earliestMemory || </span><span class="s4">'</span><span class="s10">未填寫</span><span class="s4">'</span><span class="s2">}</span><span class="s4">\n\n`</span><span class="s2">;</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">    </span></span><span class="s2">// </span><span class="s12">第五站</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">    </span>text += </span><span class="s2">`</span><span class="s11">📍</span><span class="s2"> </span><span class="s12">第五站：上帝介入的足跡</span><span class="s2">\n`</span><span class="s5">;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>text += </span><span class="s4">`</span><span class="s13">▪️</span><span class="s4"> </span><span class="s10">生命看見：</span><span class="s2">${data.steps[</span><span class="s7">4</span><span class="s2">].godFootprints || </span><span class="s4">'</span><span class="s10">未填寫</span><span class="s4">'</span><span class="s2">}</span><span class="s4">\n\n`</span><span class="s2">;</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>text += </span><span class="s4">`</span><span class="s13">✨</span><span class="s4"> </span><span class="s10">散步歷程中最深刻的是：</span><span class="s4">\n</span><span class="s2">${data.finalSummary || </span><span class="s4">'</span><span class="s10">未填寫</span><span class="s4">'</span><span class="s2">}</span><span class="s4">`</span><span class="s2">;</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">const</span><span class="s2"> textArea = document.createElement(</span><span class="s4">"textarea"</span><span class="s2">);</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>textArea.value = text;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>document.body.appendChild(textArea);</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>textArea.select();</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">try</span><span class="s2"> {</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span>document.execCommand(</span><span class="s4">'copy'</span><span class="s2">);</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span>setCopied(</span><span class="s1">true</span><span class="s2">);</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span>setTimeout(() =&gt; setCopied(</span><span class="s1">false</span><span class="s2">), </span><span class="s7">2000</span><span class="s2">);</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>} </span><span class="s1">catch</span><span class="s2"> (err) {</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">      </span>alert(</span><span class="s2">"</span><span class="s12">複製失敗，請手動複製內容。</span><span class="s2">"</span><span class="s5">);</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>document.body.removeChild(textArea);</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span>};</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span></span><span class="s1">const</span><span class="s2"> renderCurrentStepFields = () =&gt; {</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span></span><span class="s1">switch</span><span class="s2"> (currentStep) {</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span></span><span class="s1">case</span><span class="s2"> </span><span class="s7">0</span><span class="s2">:</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">return</span><span class="s2"> (</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;div className=</span><span class="s4">"space-y-6"</span><span class="s2">&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;div className=</span><span class="s4">"space-y-2"</span><span class="s2">&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>&lt;label className=</span><span class="s4">"text-lg font-semibold block"</span><span class="s2">&gt;</span><span class="s14">童年時期，主要照顧我的人是</span><span class="s2">...&lt;/label&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>&lt;textarea<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">                </span>className=</span><span class="s2">"w-full bg-white border border-[#E5E7EB] rounded-2xl p-4 min-h-[80px] focus:ring-2 focus:ring-[#C19A6B] outline-none"</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">                </span>value={data.steps[</span><span class="s7">0</span><span class="s2">].caretaker}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">                </span>onChange={(e) =&gt; handleInputChange(</span><span class="s4">'caretaker'</span><span class="s2">, e.target.value)}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">                </span>placeholder=</span><span class="s4">"</span><span class="s10">例如：婆婆、媽媽</span><span class="s4">..."</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>/&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;div className=</span><span class="s4">"space-y-2"</span><span class="s2">&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>&lt;label className=</span><span class="s4">"text-lg font-semibold block"</span><span class="s2">&gt;</span><span class="s14">他</span><span class="s2">/</span><span class="s14">她是一個怎樣的人？</span><span class="s2">&lt;/label&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>&lt;textarea<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">                </span>className=</span><span class="s2">"w-full bg-white border border-[#E5E7EB] rounded-2xl p-4 min-h-[100px] focus:ring-2 focus:ring-[#C19A6B] outline-none"</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">                </span>value={data.steps[</span><span class="s7">0</span><span class="s2">].personality}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">                </span>onChange={(e) =&gt; handleInputChange(</span><span class="s4">'personality'</span><span class="s2">, e.target.value)}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">                </span>placeholder=</span><span class="s4">"</span><span class="s10">描述他</span><span class="s4">/</span><span class="s10">她的性格或特質</span><span class="s4">..."</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>/&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;div className=</span><span class="s4">"space-y-2"</span><span class="s2">&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>&lt;label className=</span><span class="s4">"text-lg font-semibold block"</span><span class="s2">&gt;</span><span class="s14">他</span><span class="s2">/</span><span class="s14">她對我的性情、價值觀有何影響？</span><span class="s2">&lt;/label&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>&lt;textarea<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">                </span>className=</span><span class="s2">"w-full bg-white border border-[#E5E7EB] rounded-2xl p-4 min-h-[120px] focus:ring-2 focus:ring-[#C19A6B] outline-none"</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">                </span>value={data.steps[</span><span class="s7">0</span><span class="s2">].influence}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">                </span>onChange={(e) =&gt; handleInputChange(</span><span class="s4">'influence'</span><span class="s2">, e.target.value)}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">                </span>placeholder=</span><span class="s4">"</span><span class="s10">哪些習慣或想法受他</span><span class="s4">/</span><span class="s10">她影響？</span><span class="s4">"</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>/&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span>);</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span></span><span class="s1">case</span><span class="s2"> </span><span class="s7">1</span><span class="s2">:</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">return</span><span class="s2"> (</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;div className=</span><span class="s4">"space-y-2"</span><span class="s2">&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;label className=</span><span class="s4">"text-lg font-semibold block"</span><span class="s2">&gt;</span><span class="s14">我曾經覺得自己好羞愧的時刻是</span><span class="s2">...&lt;/label&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;textarea<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">              </span>className=</span><span class="s2">"w-full bg-white border border-[#E5E7EB] rounded-2xl p-4 min-h-[250px] focus:ring-2 focus:ring-[#C19A6B] outline-none"</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>value={data.steps[</span><span class="s7">1</span><span class="s2">].shameMoment}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>onChange={(e) =&gt; handleInputChange(</span><span class="s4">'shameMoment'</span><span class="s2">, e.target.value)}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>placeholder=</span><span class="s4">"</span><span class="s10">試著描述那份尷尬或無力感</span><span class="s4">..."</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>/&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span>);</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span></span><span class="s1">case</span><span class="s2"> </span><span class="s7">2</span><span class="s2">:</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">return</span><span class="s2"> (</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;div className=</span><span class="s4">"space-y-2"</span><span class="s2">&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;label className=</span><span class="s4">"text-lg font-semibold block"</span><span class="s2">&gt;</span><span class="s14">那次，我曾經得到過無條件的幫助</span><span class="s2">...&lt;/label&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;textarea<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">              </span>className=</span><span class="s2">"w-full bg-white border border-[#E5E7EB] rounded-2xl p-4 min-h-[250px] focus:ring-2 focus:ring-[#C19A6B] outline-none"</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>value={data.steps[</span><span class="s7">2</span><span class="s2">].unexpectedGrace}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>onChange={(e) =&gt; handleInputChange(</span><span class="s4">'unexpectedGrace'</span><span class="s2">, e.target.value)}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>placeholder=</span><span class="s4">"</span><span class="s10">分享一個經歷恩典的故事</span><span class="s4">..."</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>/&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span>);</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span></span><span class="s1">case</span><span class="s2"> </span><span class="s7">3</span><span class="s2">:</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">return</span><span class="s2"> (</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;div className=</span><span class="s4">"space-y-2"</span><span class="s2">&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;label className=</span><span class="s4">"text-lg font-semibold block"</span><span class="s2">&gt;</span><span class="s14">我最早與家人相處的回憶／最深刻與家人相處的回憶是</span><span class="s2">...&lt;/label&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;textarea<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">              </span>className=</span><span class="s2">"w-full bg-white border border-[#E5E7EB] rounded-2xl p-4 min-h-[250px] focus:ring-2 focus:ring-[#C19A6B] outline-none"</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>value={data.steps[</span><span class="s7">3</span><span class="s2">].earliestMemory}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>onChange={(e) =&gt; handleInputChange(</span><span class="s4">'earliestMemory'</span><span class="s2">, e.target.value)}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>placeholder=</span><span class="s4">"</span><span class="s10">那個畫面、氣味或感覺</span><span class="s4">..."</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>/&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span>);</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span></span><span class="s1">case</span><span class="s2"> </span><span class="s7">4</span><span class="s2">:</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">return</span><span class="s2"> (</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;div className=</span><span class="s4">"space-y-2"</span><span class="s2">&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;label className=</span><span class="s4">"text-lg font-semibold block"</span><span class="s2">&gt;</span><span class="s14">神怎樣讓我看到祂在我生命中出現？</span><span class="s2">&lt;/label&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;textarea<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">              </span>className=</span><span class="s2">"w-full bg-white border border-[#E5E7EB] rounded-2xl p-4 min-h-[250px] focus:ring-2 focus:ring-[#C19A6B] outline-none"</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>value={data.steps[</span><span class="s7">4</span><span class="s2">].godFootprints}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>onChange={(e) =&gt; handleInputChange(</span><span class="s4">'godFootprints'</span><span class="s2">, e.target.value)}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>placeholder=</span><span class="s4">"</span><span class="s10">在人生的起跌中，哪裡有祂的蹤跡？</span><span class="s4">"</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>/&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span>);</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span></span><span class="s1">default</span><span class="s2">:</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span></span><span class="s1">return</span><span class="s2"> </span><span class="s1">null</span><span class="s2">;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span>};</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p6"><span class="s5"><span class="Apple-converted-space">  </span></span><span class="s2">return</span><span class="s5"> (</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">    </span>&lt;div className=</span><span class="s2">"min-h-screen bg-[#FDFCFB] text-[#374151] pb-24"</span><span class="s5">&gt;</span></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">      </span>{</span><span class="s2">/* Header */</span><span class="s5">}</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">      </span>&lt;header className=</span><span class="s2">"sticky top-0 bg-white/80 backdrop-blur-md border-b border-[#F3F4F6] z-10 px-6 py-4"</span><span class="s5">&gt;</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">        </span>&lt;div className=</span><span class="s2">"max-w-md mx-auto flex flex-col items-center"</span><span class="s5">&gt;</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">          </span>&lt;h1 className=</span><span class="s2">"text-xl font-bold tracking-tight text-[#4B3621]"</span><span class="s5">&gt;</span><span class="s14">散步隨筆</span><span class="s5">&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;div className=</span><span class="s4">"flex w-full gap-1 mt-4"</span><span class="s2">&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>{[...</span><span class="s3">Array</span><span class="s2">(</span><span class="s7">6</span><span class="s2">)].map((_, i) =&gt; (</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>&lt;div<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">                </span>key={i}<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">                </span>className={</span><span class="s2">`h-1.5 flex-1 rounded-full transition-all duration-500 </span><span class="s5">${i &lt;= currentStep ? </span><span class="s2">'bg-[#C19A6B]'</span><span class="s5"> : </span><span class="s2">'bg-[#E5E7EB]'</span><span class="s5">}</span><span class="s2">`</span><span class="s5">}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>/&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>))}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span>&lt;/header&gt;</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span>&lt;main className=</span><span class="s4">"max-w-md mx-auto p-6"</span><span class="s2">&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span>{currentStep &lt; </span><span class="s7">5</span><span class="s2"> ? (</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">          </span>&lt;div className=</span><span class="s2">"space-y-8 animate-in fade-in slide-in-from-bottom-4"</span><span class="s5">&gt;</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">            </span>&lt;div className=</span><span class="s2">"flex items-center gap-3 text-[#C19A6B]"</span><span class="s5">&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>{stepsInfo[currentStep].icon}</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">              </span>&lt;span className=</span><span class="s2">"text-sm font-bold tracking-widest uppercase"</span><span class="s5">&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">                </span></span><span class="s3">Step</span><span class="s2"> {currentStep + </span><span class="s7">1</span><span class="s2">}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>&lt;/span&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p3"><span class="s2"><span class="Apple-converted-space">            </span></span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">            </span>&lt;h2 className=</span><span class="s2">"text-2xl font-bold text-[#4B3621]"</span><span class="s5">&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>{stepsInfo[currentStep].title}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;/h2&gt;</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>{renderCurrentStepFields()}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span>) : (</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">          </span>&lt;div className=</span><span class="s2">"space-y-8 animate-in fade-in zoom-in-95"</span><span class="s5">&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;div className=</span><span class="s4">"text-center space-y-4"</span><span class="s2">&gt;</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">              </span>&lt;div className=</span><span class="s2">"w-16 h-16 bg-[#F3EFE0] rounded-full flex items-center justify-center mx-auto"</span><span class="s5">&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">                </span>&lt;</span><span class="s3">Share2</span><span class="s2"> className=</span><span class="s4">"w-8 h-8 text-[#C19A6B]"</span><span class="s2"> /&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>&lt;/div&gt;</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">              </span>&lt;h2 className=</span><span class="s2">"text-2xl font-bold text-[#4B3621]"</span><span class="s5">&gt;</span><span class="s14">漫步旅程告一段落</span><span class="s5">&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>&lt;p className=</span><span class="s4">"text-gray-500"</span><span class="s2">&gt;</span><span class="s14">將這段路的心情，化作文字帶走。</span><span class="s2">&lt;/p&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;div className=</span><span class="s4">"space-y-2"</span><span class="s2">&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>&lt;label className=</span><span class="s4">"text-lg font-semibold block"</span><span class="s2">&gt;</span><span class="s14">在這次散步歷程中，我最深刻的是</span><span class="s2">...&lt;/label&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>&lt;textarea<span class="Apple-converted-space"> </span></span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">                </span>className=</span><span class="s2">"w-full bg-white border border-[#E5E7EB] rounded-2xl p-4 min-h-[180px] focus:ring-2 focus:ring-[#C19A6B] outline-none"</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">                </span>value={data.finalSummary}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">                </span>onChange={(e) =&gt; setData({...data, finalSummary: e.target.value})}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">                </span>placeholder=</span><span class="s4">"</span><span class="s10">寫下今天最想留住的一份感覺</span><span class="s4">..."</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>/&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;/div&gt;</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;button<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>onClick={exportData}</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">              </span>className={</span><span class="s2">`w-full py-4 rounded-2xl font-bold text-lg shadow-lg flex items-center justify-center gap-2 transition-all active:scale-95 </span><span class="s5">${copied ? </span><span class="s2">'bg-green-500 text-white'</span><span class="s5"> : </span><span class="s2">'bg-[#4B3621] text-white'</span><span class="s5">}</span><span class="s2">`</span><span class="s5">}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>{copied ? &lt;</span><span class="s3">Check</span><span class="s2"> className=</span><span class="s4">"w-5 h-5"</span><span class="s2"> /&gt; : &lt;</span><span class="s3">Copy</span><span class="s2"> className=</span><span class="s4">"w-5 h-5"</span><span class="s2"> /&gt;}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">              </span>{copied ? </span><span class="s4">'</span><span class="s10">已複製！</span><span class="s4">'</span><span class="s2"> : </span><span class="s4">'</span><span class="s10">匯出成果並複製</span><span class="s4">'</span><span class="s2">}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;/button&gt;</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">            </span>&lt;p className=</span><span class="s2">"text-center text-xs text-gray-400"</span><span class="s5">&gt;</span><span class="s14">複製後可直接貼到</span><span class="s5"> </span><span class="s3">WhatsApp</span><span class="s5"> </span><span class="s14">群組分享</span><span class="s5">&lt;/p&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span>)}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span>&lt;/main&gt;</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p4"><span class="s5"><span class="Apple-converted-space">      </span>{</span><span class="s2">/* Footer Navigation */</span><span class="s5">}</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">      </span>&lt;footer className=</span><span class="s2">"fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-[#F3F4F6] p-4"</span><span class="s5">&gt;</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">        </span>&lt;div className=</span><span class="s2">"max-w-md mx-auto flex gap-4"</span><span class="s5">&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;button<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>disabled={currentStep === </span><span class="s7">0</span><span class="s2">}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>onClick={() =&gt; setCurrentStep(prev =&gt; prev - </span><span class="s7">1</span><span class="s2">)}</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">            </span>className={</span><span class="s2">`flex-1 py-4 rounded-2xl font-bold flex items-center justify-center gap-1 transition-all </span><span class="s5">${currentStep === </span><span class="s7">0</span><span class="s5"> ? </span><span class="s2">'bg-gray-50 text-gray-300'</span><span class="s5"> : </span><span class="s2">'bg-gray-100 text-[#4B3621] active:bg-gray-200'</span><span class="s5">}</span><span class="s2">`</span><span class="s5">}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>&lt;</span><span class="s3">ChevronLeft</span><span class="s2"> className=</span><span class="s4">"w-5 h-5"</span><span class="s2"> /&gt; </span><span class="s14">上一站</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;button<span class="Apple-converted-space"> </span></span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>disabled={currentStep === </span><span class="s7">5</span><span class="s2">}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>onClick={() =&gt; setCurrentStep(prev =&gt; prev + </span><span class="s7">1</span><span class="s2">)}</span></p>
-<p class="p5"><span class="s5"><span class="Apple-converted-space">            </span>className={</span><span class="s2">`flex-1 py-4 rounded-2xl font-bold flex items-center justify-center gap-1 transition-all </span><span class="s5">${currentStep === </span><span class="s7">5</span><span class="s5"> ? </span><span class="s2">'bg-gray-50 text-gray-300'</span><span class="s5"> : </span><span class="s2">'bg-[#4B3621] text-white shadow-md active:bg-[#3D2C1B]'</span><span class="s5">}</span><span class="s2">`</span><span class="s5">}</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">            </span>{currentStep === </span><span class="s7">4</span><span class="s2"> ? </span><span class="s4">'</span><span class="s10">完成散步</span><span class="s4">'</span><span class="s2"> : </span><span class="s4">'</span><span class="s10">下一站</span><span class="s4">'</span><span class="s2">} &lt;</span><span class="s3">ChevronRight</span><span class="s2"> className=</span><span class="s4">"w-5 h-5"</span><span class="s2"> /&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">          </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">      </span>&lt;/footer&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s2"><span class="Apple-converted-space">  </span>);</span></p>
-<p class="p1"><span class="s2">};</span></p>
-<p class="p3"><span class="s6"></span><br></p>
-<p class="p6"><span class="s2">export</span><span class="s5"> </span><span class="s2">default</span><span class="s5"> </span><span class="s3">App</span><span class="s5">;</span></p>
-</body>
-</html>
+import React, { useState, useEffect } from 'react';
+import { ChevronRight, ChevronLeft, Copy, Check, Share2, Heart, Shield, Sun, History, MessageSquareQuote } from 'lucide-react';
+
+const App = () => {
+  const [currentStep, setCurrentStep] = useState(0);
+  const [data, setData] = useState({
+    steps: [
+      { caretaker: '', personality: '', influence: '' }, // 第一站
+      { shameMoment: '' },                             // 第二站
+      { unexpectedGrace: '' },                         // 第三站
+      { earliestMemory: '' },                          // 第四站
+      { godFootprints: '' }                            // 第五站
+    ],
+    finalSummary: ''
+  });
+  const [copied, setCopied] = useState(false);
+
+  const stepsInfo = [
+    { title: "第一站：兒時照顧者", icon: <Heart className="w-6 h-6" /> },
+    { title: "第二站：羞愧時刻", icon: <Shield className="w-6 h-6" /> },
+    { title: "第三站：出奇不意的恩典", icon: <Sun className="w-6 h-6" /> },
+    { title: "第四站：最早的回憶", icon: <History className="w-6 h-6" /> },
+    { title: "第五站：上帝介入的足跡", icon: <MessageSquareQuote className="w-6 h-6" /> }
+  ];
+
+  // Load from LocalStorage
+  useEffect(() => {
+    const saved = localStorage.getItem('walking_meditation_v2');
+    if (saved) {
+      try {
+        const parsed = JSON.parse(saved);
+        if (parsed.steps && parsed.steps.length === 5) {
+          setData(parsed);
+        }
+      } catch (e) {
+        console.error("Failed to load data");
+      }
+    }
+  }, []);
+
+  // Save to LocalStorage
+  useEffect(() => {
+    localStorage.setItem('walking_meditation_v2', JSON.stringify(data));
+  }, [data]);
+
+  const handleInputChange = (field, value) => {
+    const newSteps = [...data.steps];
+    newSteps[currentStep] = { ...newSteps[currentStep], [field]: value };
+    setData({ ...data, steps: newSteps });
+  };
+
+  const exportData = () => {
+    let text = `📝【散步隨筆：生命足跡紀錄】\n\n`;
+    
+    // 第一站
+    text += `📍 第一站：兒時照顧者\n`;
+    text += `▪️ 主要照顧者：${data.steps[0].caretaker || '未填寫'}\n`;
+    text += `▪️ 形象特質：${data.steps[0].personality || '未填寫'}\n`;
+    text += `▪️ 性情價值觀影響：${data.steps[0].influence || '未填寫'}\n\n`;
+
+    // 第二站
+    text += `📍 第二站：羞愧時刻\n`;
+    text += `▪️ 經歷分享：${data.steps[1].shameMoment || '未填寫'}\n\n`;
+
+    // 第三站
+    text += `📍 第三站：出奇不意的恩典\n`;
+    text += `▪️ 得到幫助的經歷：${data.steps[2].unexpectedGrace || '未填寫'}\n\n`;
+
+    // 第四站
+    text += `📍 第四站：最早的回憶\n`;
+    text += `▪️ 回憶內容：${data.steps[3].earliestMemory || '未填寫'}\n\n`;
+
+    // 第五站
+    text += `📍 第五站：上帝介入的足跡\n`;
+    text += `▪️ 生命看見：${data.steps[4].godFootprints || '未填寫'}\n\n`;
+
+    text += `✨ 散步歷程中最深刻的是：\n${data.finalSummary || '未填寫'}`;
+
+    const textArea = document.createElement("textarea");
+    textArea.value = text;
+    document.body.appendChild(textArea);
+    textArea.select();
+    try {
+      document.execCommand('copy');
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (err) {
+      console.error("複製失敗");
+    }
+    document.body.removeChild(textArea);
+  };
+
+  const renderCurrentStepFields = () => {
+    switch (currentStep) {
+      case 0:
+        return (
+          <div className="space-y-6">
+            <div className="space-y-2">
+              <label className="text-lg font-semibold block">童年時期，主要照顧我的人是...</label>
+              <textarea 
+                className="w-full bg-white border border-[#E5E7EB] rounded-2xl p-4 min-h-[80px] focus:ring-2 focus:ring-[#C19A6B] outline-none"
+                value={data.steps[0].caretaker}
+                onChange={(e) => handleInputChange('caretaker', e.target.value)}
+                placeholder="例如：婆婆、媽媽..."
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-lg font-semibold block">他/她是一個怎樣的人？</label>
+              <textarea 
+                className="w-full bg-white border border-[#E5E7EB] rounded-2xl p-4 min-h-[100px] focus:ring-2 focus:ring-[#C19A6B] outline-none"
+                value={data.steps[0].personality}
+                onChange={(e) => handleInputChange('personality', e.target.value)}
+                placeholder="描述他/她的性格或特質..."
+              />
+            </div>
+            <div className="space-y-2">
+              <label className="text-lg font-semibold block">他/她對我的性情、價值觀有何影響？</label>
+              <textarea 
+                className="w-full bg-white border border-[#E5E7EB] rounded-2xl p-4 min-h-[120px] focus:ring-2 focus:ring-[#C19A6B] outline-none"
+                value={data.steps[0].influence}
+                onChange={(e) => handleInputChange('influence', e.target.value)}
+                placeholder="哪些習慣或想法受他/她影響？"
+              />
+            </div>
+          </div>
+        );
+      case 1:
+        return (
+          <div className="space-y-2">
+            <label className="text-lg font-semibold block">我曾經覺得自己好羞愧的時刻是...</label>
+            <textarea 
+              className="w-full bg-white border border-[#E5E7EB] rounded-2xl p-4 min-h-[250px] focus:ring-2 focus:ring-[#C19A6B] outline-none"
+              value={data.steps[1].shameMoment}
+              onChange={(e) => handleInputChange('shameMoment', e.target.value)}
+              placeholder="試著描述那份尷尬或無力感..."
+            />
+          </div>
+        );
+      case 2:
+        return (
+          <div className="space-y-2">
+            <label className="text-lg font-semibold block">那次，我曾經得到過無條件的幫助...</label>
+            <textarea 
+              className="w-full bg-white border border-[#E5E7EB] rounded-2xl p-4 min-h-[250px] focus:ring-2 focus:ring-[#C19A6B] outline-none"
+              value={data.steps[2].unexpectedGrace}
+              onChange={(e) => handleInputChange('unexpectedGrace', e.target.value)}
+              placeholder="分享一個經歷恩典的故事..."
+            />
+          </div>
+        );
+      case 3:
+        return (
+          <div className="space-y-2">
+            <label className="text-lg font-semibold block">我最早與家人相處的回憶／最深刻與家人相處的回憶是...</label>
+            <textarea 
+              className="w-full bg-white border border-[#E5E7EB] rounded-2xl p-4 min-h-[250px] focus:ring-2 focus:ring-[#C19A6B] outline-none"
+              value={data.steps[3].earliestMemory}
+              onChange={(e) => handleInputChange('earliestMemory', e.target.value)}
+              placeholder="那個畫面、氣味或感覺..."
+            />
+          </div>
+        );
+      case 4:
+        return (
+          <div className="space-y-2">
+            <label className="text-lg font-semibold block">神怎樣讓我看到祂在我生命中出現？</label>
+            <textarea 
+              className="w-full bg-white border border-[#E5E7EB] rounded-2xl p-4 min-h-[250px] focus:ring-2 focus:ring-[#C19A6B] outline-none"
+              value={data.steps[4].godFootprints}
+              onChange={(e) => handleInputChange('godFootprints', e.target.value)}
+              placeholder="在人生的起跌中，哪裡有祂的蹤跡？"
+            />
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-[#FDFCFB] text-[#374151] pb-24">
+      {/* Header */}
+      <header className="sticky top-0 bg-white/80 backdrop-blur-md border-b border-[#F3F4F6] z-10 px-6 py-4">
+        <div className="max-w-md mx-auto flex flex-col items-center">
+          <h1 className="text-xl font-bold tracking-tight text-[#4B3621]">散步隨筆</h1>
+          <div className="flex w-full gap-1 mt-4">
+            {[...Array(6)].map((_, i) => (
+              <div 
+                key={i} 
+                className={`h-1.5 flex-1 rounded-full transition-all duration-500 ${i <= currentStep ? 'bg-[#C19A6B]' : 'bg-[#E5E7EB]'}`}
+              />
+            ))}
+          </div>
+        </div>
+      </header>
+
+      <main className="max-w-md mx-auto p-6">
+        {currentStep < 5 ? (
+          <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4">
+            <div className="flex items-center gap-3 text-[#C19A6B]">
+              {stepsInfo[currentStep].icon}
+              <span className="text-sm font-bold tracking-widest uppercase">
+                Step {currentStep + 1}
+              </span>
+            </div>
+            
+            <h2 className="text-2xl font-bold text-[#4B3621]">
+              {stepsInfo[currentStep].title}
+            </h2>
+
+            {renderCurrentStepFields()}
+          </div>
+        ) : (
+          <div className="space-y-8 animate-in fade-in zoom-in-95">
+            <div className="text-center space-y-4">
+              <div className="w-16 h-16 bg-[#F3EFE0] rounded-full flex items-center justify-center mx-auto">
+                <Share2 className="w-8 h-8 text-[#C19A6B]" />
+              </div>
+              <h2 className="text-2xl font-bold text-[#4B3621]">漫步旅程告一段落</h2>
+              <p className="text-gray-500">將這段路的心情，化作文字帶走。</p>
+            </div>
+
+            <div className="space-y-2">
+              <label className="text-lg font-semibold block">在這次散步歷程中，我最深刻的是...</label>
+              <textarea 
+                className="w-full bg-white border border-[#E5E7EB] rounded-2xl p-4 min-h-[180px] focus:ring-2 focus:ring-[#C19A6B] outline-none"
+                value={data.finalSummary}
+                onChange={(e) => setData({...data, finalSummary: e.target.value})}
+                placeholder="寫下今天最想留住的一份感覺..."
+              />
+            </div>
+
+            <button 
+              onClick={exportData}
+              className={`w-full py-4 rounded-2xl font-bold text-lg shadow-lg flex items-center justify-center gap-2 transition-all active:scale-95 ${copied ? 'bg-green-500 text-white' : 'bg-[#4B3621] text-white'}`}
+            >
+              {copied ? <Check className="w-5 h-5" /> : <Copy className="w-5 h-5" />}
+              {copied ? '已複製！' : '匯出成果並複製'}
+            </button>
+            <p className="text-center text-xs text-gray-400">複製後可直接貼到 WhatsApp 群組分享</p>
+          </div>
+        )}
+      </main>
+
+      {/* Footer Navigation */}
+      <footer className="fixed bottom-0 left-0 right-0 bg-white/90 backdrop-blur-md border-t border-[#F3F4F6] p-4">
+        <div className="max-w-md mx-auto flex gap-4">
+          <button 
+            disabled={currentStep === 0}
+            onClick={() => setCurrentStep(prev => prev - 1)}
+            className={`flex-1 py-4 rounded-2xl font-bold flex items-center justify-center gap-1 transition-all ${currentStep === 0 ? 'bg-gray-50 text-gray-300' : 'bg-gray-100 text-[#4B3621] active:bg-gray-200'}`}
+          >
+            <ChevronLeft className="w-5 h-5" /> 上一站
+          </button>
+          <button 
+            disabled={currentStep === 5}
+            onClick={() => setCurrentStep(prev => prev + 1)}
+            className={`flex-1 py-4 rounded-2xl font-bold flex items-center justify-center gap-1 transition-all ${currentStep === 5 ? 'bg-gray-50 text-gray-300' : 'bg-[#4B3621] text-white shadow-md active:bg-[#3D2C1B]'}`}
+          >
+            {currentStep === 4 ? '完成散步' : '下一站'} <ChevronRight className="w-5 h-5" />
+          </button>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default App;
